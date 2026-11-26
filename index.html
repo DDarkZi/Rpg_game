@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0f1220">
+<title>공명 전쟁</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- 제목 -->
+  <section id="title" class="scr">
+    <h1>공명 전쟁</h1>
+    <div class="sub">일곱… 아니, 여덟 종족의 고리</div>
+    <div class="card story" id="intro"></div>
+    <h3>① 종족을 고르세요</h3>
+    <div id="rgrid" class="rgrid"></div>
+    <div id="rdet" class="card small"></div>
+    <div class="row">
+      <label class="lbl">상대 AI
+        <select id="dif"><option value="2.0">🐣 쉬움</option><option value="1.4" selected>🐥 보통</option><option value="0.9">🦅 어려움</option></select>
+      </label>
+      <button id="bStart" class="big go">⚔️ 전쟁 시작</button>
+    </div>
+    <details class="card small">
+      <summary>❓ 어떻게 하나요?</summary>
+      <ul>
+        <li>8명이 <b>원형</b>으로 이어져 있어요. 내가 보낸 유닛은 <b>다음 사람</b> 판으로 가요.</li>
+        <li><b>유닛</b>을 사서 보내면 인컴(골드 수입)이 늘고, 상대 판을 뚫고 나가면 상대 <b>목숨</b>이 깎여요.</li>
+        <li>내 판에는 <b>타워</b>를 지어 막아요. 지상 유닛은 타워 사이 길로 걷고, 공중 유닛은 곧장 날아와요(그림자로 구분!). 대공 가능한 타워를 꼭 지으세요.</li>
+        <li>1분 30초에 <b>공명</b>이 일어나 두 번째 종족을 고르면, 두 종족을 합친 <b>조합 타워·유닛</b>이 열려요.</li>
+        <li>시간이 갈수록 유닛이 튼튼해지고 탈출 피해도 커져요. <b>군단 강화</b>로 내 유닛 체력을 올릴 수 있어요.</li>
+        <li>마지막까지 살아남으면 우승!</li>
+      </ul>
+    </details>
+    <details class="card small">
+      <summary>📜 업데이트 내역</summary>
+      <ul id="updates">
+        <li><b>v0.1.1</b> 사이트 주소가 짧아졌어요: ddarkzi.github.io/Rpg_game/</li>
+        <li><b>v0.1</b> 시제품: 2D 도트 · 인간/기계/곤충 3종족(조합 3개) · 8인 원형 대전(AI 7명) · 군단 강화 · 공중/지상 · 판 구경하기. 마법·외계·동물·엘프·언데드는 준비 중.</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- 게임 -->
+  <section id="game" class="scr hide">
+    <div class="hud">
+      <div class="hrow"><span id="hTime">0:00</span><span id="hGold">💰 0</span><span id="hInc"></span><span id="hLate"></span></div>
+      <div class="bar"><i id="hLifeB"></i><span id="hLife"></span></div>
+      <div id="hName" class="dim"></div>
+    </div>
+    <div id="cwrap"><canvas id="cv" width="112" height="160"></canvas><div id="toast"></div></div>
+    <div id="pstrip"></div>
+    <div id="tabs" class="tabs"><button data-tab="t" class="on">🏗 타워</button><button data-tab="u">🐾 유닛</button><button data-tab="r">⚡ 종족</button></div>
+    <div id="info"></div>
+    <div id="items" class="items"></div>
+    <div class="row ctl"><button id="bPause">⏸</button><button id="bSpd">1x</button><button id="bQuit">나가기</button></div>
+  </section>
+
+  <div id="modal" class="modal hide"><div class="mbox" id="mBody"></div></div>
+</div>
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
